@@ -28,7 +28,8 @@ RUN mkdir -p /opt/asciidoctor \
     && git clone https://github.com/asciidoctor/asciidoctor-stylesheet-factory.git asciidoctor-themes \
     && cd asciidoctor-themes && bundle install && npm install cssshrink \
     && ./build-stylesheet.sh && mv stylesheets /opt/asciidoctor/themes \
-    && apk del -r --no-cache .buildtmp && gem uninstall bundler \
+    && apk del -r --no-cache .buildtmp && gem uninstall bundler compass chunky_png fssm sass zurb-foundation \
+    && rm -rf /asciidoctor-themes \
     && chmod +x /usr/local/bin/entrypoint.sh
 
 VOLUME /documents
