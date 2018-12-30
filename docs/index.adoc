@@ -31,3 +31,5 @@ Fábio Luciano <fabio@naoimporta.com>
 * riak
 * rocket-panda
 * rubygems
+
+=== Avaliable Plugins
