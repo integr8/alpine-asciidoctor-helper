@@ -1,3 +1,3 @@
 #!/bin/bash
 
-asciidoctor-pdf -D ${ASCIIDOCTOR_OUTPUT_PATH} "${@:2}"
+asciidoctor-pdf -D $ASCIIDOCTOR_OUTPUT_PATH $ASCIIDOCTOR_PLUGIN_OPTIONS "${@:2}"
