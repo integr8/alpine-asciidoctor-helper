@@ -13,6 +13,7 @@ jobs:
     - stage: "Publish docs"
       script:
         - docker run --rm -v $TRAVIS_BUILD_DIR:/documents/ integr8/alpine-asciidoctor-helper asciidoctor docs/index.adoc
+        - ls -lR
       deploy:
         provider: pages
         target-branch: gh-pages
