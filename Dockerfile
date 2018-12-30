@@ -12,8 +12,8 @@ ENV ASCIIDOCTOR_VERSION=${ASCIIDOCTOR_VERSION} \
 COPY files/*.sh /usr/local/bin/
 
 RUN mkdir -p /opt/asciidoctor \
-    && apk add --no-cache bash curl ca-certificates findutils font-bakoma-ttf \
-        graphviz inotify-tools openjdk8-jre py2-pillow py-setuptools \
+    && apk add --no-cache bash curl findutils font-bakoma-ttf \
+        graphviz inotify-tools py2-pillow py-setuptools \
         python2 ruby ruby-mathematical ttf-liberation unzip which \
     && apk add --no-cache --virtual .buildtmp build-base libxml2-dev \
         ruby-dev python2-dev py2-pip make nodejs npm git \

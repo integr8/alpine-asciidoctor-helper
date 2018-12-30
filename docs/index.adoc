@@ -1,10 +1,11 @@
 :toc2:
 :toclevels: 2
 :icons: font
-:iconfont-cdn: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+:iconfont-cdn: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min
 :linkattrs:
 :sectanchors:
 :sectlink:
+:nofooter:
 :experimental:
 :source-language: asciidoc
 
@@ -15,16 +16,18 @@ Fábio Luciano <fabio@naoimporta.com>
 :source-highlighter: rouge
 :listing-caption: Listing
 
-* asciidoctor.css
-* colony.css
-* foundation-lime.css
-* foundation-potion.css
-* foundation.css
-* github.css
-* golo.css
-* iconic.css
-* maker.css
-* readthedocs.css
-* riak.css
-* rocket-panda.css
-* rubygems.css
+
+=== Avaliable Themes
+* asciidoctor
+* colony
+* foundation-lime
+* foundation-potion
+* foundation
+* github
+* golo
+* iconic
+* maker
+* readthedocs
+* riak
+* rocket-panda
+* rubygems

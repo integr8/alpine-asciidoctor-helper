@@ -2,10 +2,12 @@
 set -e
 
 export SOURCE_PATH='/opt/source'
-export ASCIIDOCTOR_THEMES_PATH='/opt/asciidoctor/themes'
+export ASCIIDOCTOR_HTML_THEME_PATH='/opt/asciidoctor/themes'
 export ASCIIDOCTOR_OUTPUT_PATH='/documents/output'
 
 mkdir -p $ASCIIDOCTOR_OUTPUT_PATH
+
+source /usr/local/bin/plugin-helper.sh
 
 case "$1" in
     html)
