@@ -7,15 +7,13 @@ export ASCIIDOCTOR_OUTPUT_PATH='/documents/output'
 
 mkdir -p $ASCIIDOCTOR_OUTPUT_PATH
 
-: ${ASCIIDOCTOR_THEME:='asciidoctor'}
-
 case "$1" in
     html)
-        asciidoctor -D ${ASCIIDOCTOR_OUTPUT_PATH} -a stylesheet=${ASCIIDOCTOR_THEMES_PATH}/${ASCIIDOCTOR_THEME}.css "${@:2}"
-        ;;
+      source /usr/local/bin/html-output.sh
+      ;;
     pdf)
-        asciidoctor-pdf -D ${ASCIIDOCTOR_OUTPUT_PATH} "${@:2}"
-        ;;
+      source /usr/local/bin/pdf-output.sh
+      ;;
     *)
-        echo '?'
+      echo '?'
 esac

@@ -9,7 +9,7 @@ ENV ASCIIDOCTOR_VERSION=${ASCIIDOCTOR_VERSION} \
     ASCIIDOCTOR_PDF_VERSION=${ASCIIDOCTOR_PDF_VERSION} \
     ASCIIDOCTOR_EPUB_VERSION=${ASCIIDOCTOR_EPUB_VERSION}
 
-COPY files/entrypoint.sh /usr/local/bin/
+COPY files/*.sh /usr/local/bin/
 
 RUN mkdir -p /opt/asciidoctor \
     && apk add --no-cache bash curl ca-certificates findutils font-bakoma-ttf \
@@ -30,7 +30,7 @@ RUN mkdir -p /opt/asciidoctor \
     && ./build-stylesheet.sh && mv stylesheets /opt/asciidoctor/themes \
     && apk del -r --no-cache .buildtmp && gem uninstall bundler compass chunky_png fssm sass zurb-foundation \
     && rm -rf /asciidoctor-themes \
-    && chmod +x /usr/local/bin/entrypoint.sh
+    && chmod +x /usr/local/bin/*.sh
 
 VOLUME /documents
 WORKDIR /documents
