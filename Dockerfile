@@ -17,7 +17,7 @@ RUN mkdir -p /opt/asciidoctor \
         python2 ruby ruby-mathematical ttf-liberation unzip which \
     && apk add --no-cache --virtual .buildtmp build-base libxml2-dev \
         ruby-dev python2-dev py2-pip make nodejs npm git \
-    && gem install --no-document "asciidoctor:${ASCIIDOCTOR_VERSION}" \
+    && gem install --no-rdoc --no-ri "asciidoctor:${ASCIIDOCTOR_VERSION}" \
         asciidoctor-confluence asciidoctor-diagram asciimath \
         asciidoctor-epub3:${ASCIIDOCTOR_EPUB_VERSION} asciidoctor-mathematical \
         "asciidoctor-pdf:${ASCIIDOCTOR_PDF_VERSION}" asciidoctor-revealjs \
@@ -29,7 +29,7 @@ RUN mkdir -p /opt/asciidoctor \
     && cd asciidoctor-themes && bundle install && npm install cssshrink \
     && ./build-stylesheet.sh && mv stylesheets /opt/asciidoctor/themes \
     && git clone https://github.com/asciidoctor/asciidoctor-extensions-lab /opt/asciidoctor/plugins \
-    && apk del -r --no-cache .buildtmp && gem uninstall bundler compass chunky_png fssm sass zurb-foundation \
+    && apk del -r --no-cache .buildtmp && gem uninstall bundler compass chunky_png fssm sass zurb-foundation && gem cleanup \
     && rm -rf /asciidoctor-themes \
     && chmod +x /usr/local/bin/*.sh
 
