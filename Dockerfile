@@ -12,7 +12,7 @@ ENV ASCIIDOCTOR_VERSION=${ASCIIDOCTOR_VERSION} \
 RUN mkdir -p /opt/asciidoctor \
     && apk add --no-cache bash curl findutils font-bakoma-ttf \
         graphviz inotify-tools py2-pillow py-setuptools \
-        python2 ruby ruby-mathematical ttf-liberation unzip which \
+        python2 ruby ruby-mathematical ttf-liberation unzip which openjdk8-jre \
     && apk add --no-cache --virtual .buildtmp build-base libxml2-dev \
         ruby-dev python2-dev py2-pip make nodejs npm git \
     && gem install --no-rdoc --no-ri "asciidoctor:${ASCIIDOCTOR_VERSION}" \
