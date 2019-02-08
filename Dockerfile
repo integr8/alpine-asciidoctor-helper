@@ -9,8 +9,6 @@ ENV ASCIIDOCTOR_VERSION=${ASCIIDOCTOR_VERSION} \
     ASCIIDOCTOR_PDF_VERSION=${ASCIIDOCTOR_PDF_VERSION} \
     ASCIIDOCTOR_EPUB_VERSION=${ASCIIDOCTOR_EPUB_VERSION}
 
-COPY files/*.sh /usr/local/bin/
-
 RUN mkdir -p /opt/asciidoctor \
     && apk add --no-cache bash curl findutils font-bakoma-ttf \
         graphviz inotify-tools py2-pillow py-setuptools \
@@ -30,8 +28,10 @@ RUN mkdir -p /opt/asciidoctor \
     && ./build-stylesheet.sh && mv stylesheets /opt/asciidoctor/themes \
     && git clone https://github.com/asciidoctor/asciidoctor-extensions-lab /opt/asciidoctor/plugins \
     && apk del -r --no-cache .buildtmp && gem uninstall bundler compass chunky_png fssm sass zurb-foundation && gem cleanup \
-    && rm -rf /asciidoctor-themes \
-    && chmod +x /usr/local/bin/*.sh
+    && rm -rf /asciidoctor-themes
+
+COPY files/*.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/*.sh
 
 VOLUME /documents
 WORKDIR /documents

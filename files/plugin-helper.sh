@@ -5,6 +5,8 @@ if [[ ! -z "${ASCIIDOCTOR_PLUGIN}" ]]; then
   for PLUGIN in "${PLUGINS[@]}"; do
       if [[ -f "$ASCIIDOCTOR_PLUGIN_PATH/lib/$PLUGIN.rb" ]]; then
         ASCIIDOCTOR_PLUGIN_OPTIONS="${ASCIIDOCTOR_PLUGIN_OPTIONS} -r ${ASCIIDOCTOR_PLUGIN_PATH}/lib/${PLUGIN}.rb"
+      elif [[ $(gem list -i ${PLUGIN}) == "true" ]]; then
+        ASCIIDOCTOR_PLUGIN_OPTIONS="${ASCIIDOCTOR_PLUGIN_OPTIONS} -r ${PLUGIN}"
       fi
   done
 fi
