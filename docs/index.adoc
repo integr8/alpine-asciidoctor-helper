@@ -17,7 +17,18 @@ Fábio Luciano <fabio@naoimporta.com>
 :listing-caption: Listing
 
 
-=== Avaliable Themes
+.Parâmetros Opcionais
+[width="100%", options="header",frame="topbot"] 
+|=======
+| Variável | Descrição | Valor Padrão
+| ASCIIDOCTOR_THEME | Arquivo que lista todos os ChangeSets pertencentes ao sistema | changelog.xml 
+| ASCIIDOCTOR_PLUGIN | Lista de plugins util |  asdsds
+| ASCIIDOCTOR_PDF_THEMES_DIR | dsds | sdasda
+| ASCIIDOCTOR_PDF_THEME | sdasdsa | dads
+| ASCIIDOCTOR_PDF_FONTS_DIR | dasdasd | dsadsa
+|=======
+
+== Avaliable Themes
 * asciidoctor
 * colony
 * foundation-lime
@@ -32,7 +43,9 @@ Fábio Luciano <fabio@naoimporta.com>
 * rocket-panda
 * rubygems
 
-=== Avaliable Plugins
+== Avaliable Plugins
+
+=== Extras
 * asciidoc-docinfoprocessor
 * autoxref-treeprocessor
 * chart-block-macro
@@ -80,3 +93,6 @@ Fábio Luciano <fabio@naoimporta.com>
 * view-result-docinfoprocessor
 * whitespace-include-processor
 * xml-entity-postprocessor
+
+==== Plugins Gem
+* asciidoc-diagram
