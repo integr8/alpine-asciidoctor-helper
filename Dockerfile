@@ -9,10 +9,13 @@ ENV ASCIIDOCTOR_VERSION=${ASCIIDOCTOR_VERSION} \
     ASCIIDOCTOR_PDF_VERSION=${ASCIIDOCTOR_PDF_VERSION} \
     ASCIIDOCTOR_EPUB_VERSION=${ASCIIDOCTOR_EPUB_VERSION}
 
+COPY files/*.sh /usr/local/bin/
+COPY files/output/*.sh /usr/local/bin/output/
+
 RUN mkdir -p /opt/asciidoctor \
     && apk add --no-cache bash curl findutils font-bakoma-ttf \
         graphviz inotify-tools py2-pillow py-setuptools \
-        python2 ruby ruby-mathematical ttf-liberation unzip which \
+        python2 ruby ruby-mathematical ttf-liberation unzip which openjdk8-jre \
     && apk add --no-cache --virtual .buildtmp build-base libxml2-dev \
         ruby-dev python2-dev py2-pip make nodejs npm git \
     && gem install --no-rdoc --no-ri "asciidoctor:${ASCIIDOCTOR_VERSION}" \
@@ -28,10 +31,8 @@ RUN mkdir -p /opt/asciidoctor \
     && ./build-stylesheet.sh && mv stylesheets /opt/asciidoctor/themes \
     && git clone https://github.com/asciidoctor/asciidoctor-extensions-lab /opt/asciidoctor/plugins \
     && apk del -r --no-cache .buildtmp && gem uninstall bundler compass chunky_png fssm sass zurb-foundation && gem cleanup \
-    && rm -rf /asciidoctor-themes
-
-COPY files/*.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/*.sh
+    && rm -rf /asciidoctor-themes \
+    && chmod +x /usr/local/bin/*.sh
 
 VOLUME /documents
 WORKDIR /documents

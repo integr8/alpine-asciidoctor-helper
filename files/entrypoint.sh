@@ -11,10 +11,10 @@ source /usr/local/bin/plugin-helper.sh
 
 case "$1" in
     html)
-      source /usr/local/bin/html-output.sh
+      source /usr/local/bin/output/html.sh
       ;;
     pdf)
-      source /usr/local/bin/pdf-output.sh
+      source /usr/local/bin/output/pdf.sh
       ;;
     *)
       echo '?'
